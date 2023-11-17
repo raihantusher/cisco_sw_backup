@@ -1,3 +1,3 @@
-call "venv\scripts\activate"
+call venv/scripts/activate
 ::cd ur_path
 python RUN.py
