@@ -65,6 +65,8 @@ def backup_cisco_device(hostname, host_ip, username, password, port, log_file):
         print("Authentication failed. Please verify your credentials.")
     except paramiko.SSHException as e:
         print(f"Unable to establish SSH connection: {str(e)}")
+    except Exception as e:
+        print(f"Unable to establish SSH connection: {str(e)}")
     finally:
         # Close the SSH connection
         ssh.close()
