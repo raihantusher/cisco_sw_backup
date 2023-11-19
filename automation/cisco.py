@@ -2,12 +2,12 @@ import paramiko
 import datetime
 import time
 
-from . import AbstractAutomation
+from .AbstractAutomation import AbstractAutomation
 
 time_now = datetime.datetime.now().strftime('%d_%b_%Y_%H_%M_%S')
 
 
-class CiscoBusinessSwitch():
+class CiscoBusinessSwitch(AbstractAutomation):
 
     def start_backup(self, hostname, host_ip, username, password, port, log_file):
         # Create an SSH client
@@ -67,12 +67,14 @@ class CiscoBusinessSwitch():
             print("Authentication failed. Please verify your credentials.")
         except paramiko.SSHException as e:
             print(f"Unable to establish SSH connection: {str(e)}")
+        except Exception as e:
+            print(f"{str(e)}")
         finally:
             # Close the SSH connection
             ssh.close()
 
 
-class CiscoCatalyst():
+class CiscoCatalyst(AbstractAutomation):
 
     def start_backup(self, hostname, host_ip, username, password, port, log_file):
         print("hello")

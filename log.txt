@@ -1,8 +1,0 @@
-
-
-
-
-switch9359d1#copy running-config tftp://192.168.1.150/dummy-16_Nov_2023_15_22switch9359d1#[K$-config tftp://192.168.1.150/dummy-16_Nov_2023_15_22_23
-10-Oct-2013 18:36:25 %SNMP-W-SNMPAUTHFAIL: Access attempted by unauthorized NMS, aggregated (1)
-10-Oct-2013 18:36:25 %COPY-I-FILECPY: Files Copy - source URL running-config destination URL tftp://192.168.1.150/dummy-16_Nov_2023_15_22_23
-...

@@ -1,6 +1,5 @@
 import configparser
 import ping3
-from cisco_backup import backup_cisco_device
 from automation.AutomationFactory import AutomationFactory
 
 
@@ -12,7 +11,7 @@ def is_host_reachable(host, timeout=1):
     :param timeout: Timeout for the ping request in seconds.
     :return: True if the host is reachable, False otherwise.
     """
-    #pinger = ping3.Ping(timeout=timeout)
+    # pinger = ping3.Ping(timeout=timeout)
 
     try:
         response = ping3.ping(host, timeout=1)
@@ -39,16 +38,14 @@ for host in config.sections():
     port = config[host]['port']
     type = config[host]['type']
 
-
-    #host_to_ping = "example.com"
+    # host_to_ping = "example.com"
     result = is_host_reachable(host_ip)
 
-    if result:
-        automation = AutomationFactory.get_obj(type)
-        print(automation)
+    # if result:
+    #     automation = AutomationFactory.get_obj(type)
+    #     automation.start_backup(hostname, host_ip, username, password, port, log_file="log.txt")
+    # else:
+    #     print(f"{hostname}-{host_ip} is not reachable.")
 
-        automation.start_backup(hostname, host_ip, username, password, port, log_file="log.txt")
-    else:
-        print(f"{hostname}-{host_ip} is not reachable.")
-
-
+    automation = AutomationFactory.get_obj(type)
+    automation.start_backup(hostname, host_ip, username, password, port, log_file="log.txt")
